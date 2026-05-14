@@ -74,7 +74,7 @@ function checkAnswer(latLng) {
   accepting = false;
 
   /* Record every click for the heatmap */
-  clickPoints.push(latLng);
+  clickPoints.push(new google.maps.LatLng(latLng.lat(), latLng.lng()));
 
   var loc = locations[currentIndex];
   var lat = latLng.lat();
@@ -127,10 +127,22 @@ function endGame() {
   document.getElementById('final-score').textContent =
     score + ' Correct, ' + incorrect + ' Incorrect';
 
-  /* Heatmap Layer - display all click points after game ends */
+  /* Heatmap Layer - hardcoded test points + actual click points */
+  var testPoints = [
+    new google.maps.LatLng(34.2400, -118.5290),
+    new google.maps.LatLng(34.2405, -118.5285),
+    new google.maps.LatLng(34.2395, -118.5295),
+    new google.maps.LatLng(34.2410, -118.5280),
+    new google.maps.LatLng(34.2390, -118.5300)
+  ];
+
+  var allPoints = testPoints.concat(clickPoints);
+
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: clickPoints,
-    map: map,
-    radius: 40
+    data:        allPoints,
+    map:         map,
+    radius:      80,
+    opacity:     0.8,
+    dissipating: true
   });
 }
