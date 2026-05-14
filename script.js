@@ -1,13 +1,13 @@
 /* LOCATIONS */
 
-/* Instructor Assigned Location */
+/*  Assigned Location */
 var locations = [
   {
     name:   "Plaza del Sol Performance Hall",
     bounds: { north: 34.24080, south: 34.24010, east: -118.52600, west: -118.52720 }
   },
 
-/* Student Chosen Locations */
+/* Locations */
   {
     name:   "Bayramian Hall",
     bounds: { north: 34.24075, south: 34.23995, east: -118.53075, west: -118.53190 }
@@ -133,7 +133,7 @@ function endGame() {
   document.getElementById('final-score').textContent =
     score + ' Correct, ' + incorrect + ' Incorrect';
 
-  /* Heatmap Layer */
+  /* Heatmap Layer - displays all user click points on the map when the game ends */
   heatmap = new google.maps.visualization.HeatmapLayer({
     data:        new google.maps.MVCArray(clickPoints),
     map:         map,
