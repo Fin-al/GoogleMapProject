@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #d2b48c;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+}
+
+#panel {
+  width: 280px;
+  padding: 16px;
+  background: #d2b48c;
+  overflow-y: auto;
+}
+
+#panel h2 {
+  font-size: 1.1rem;
+  margin: 0 0 12px 0;
+}
+
+#log p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+#log p.question {
+  background: #4a90d9;
+  color: white;
+  text-align: center;
+  padding: 3px 0;
+}
+
+#log p.correct {
+  color: #00aa00;
+  text-align: center;
+}
+
+#log p.incorrect {
+  color: #cc0000;
+  text-align: center;
+}
+
+#final-score {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+#map {
+  flex: 1;
+}
