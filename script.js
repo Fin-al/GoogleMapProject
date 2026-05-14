@@ -1,13 +1,13 @@
 /* LOCATIONS */
 
-/* My Assigned Location */
+/* Instructor Assigned Location */
 var locations = [
   {
     name:   "Plaza del Sol Performance Hall",
     bounds: { north: 34.24080, south: 34.24010, east: -118.52600, west: -118.52720 }
   },
 
-/* Mine Chosen Locations */
+/* Student Chosen Locations */
   {
     name:   "Bayramian Hall",
     bounds: { north: 34.24075, south: 34.23995, east: -118.53075, west: -118.53190 }
@@ -31,6 +31,10 @@ var currentIndex = 0;
 var score = 0;
 var shapes = [];
 var accepting = false;
+
+/* Heatmap Layer */
+var heatmap;
+var clickPoints = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -68,6 +72,9 @@ function showQuestion() {
 
 function checkAnswer(latLng) {
   accepting = false;
+
+  /* Record every click for the heatmap */
+  clickPoints.push(latLng);
 
   var loc = locations[currentIndex];
   var lat = latLng.lat();
@@ -119,4 +126,11 @@ function endGame() {
   var incorrect = locations.length - score;
   document.getElementById('final-score').textContent =
     score + ' Correct, ' + incorrect + ' Incorrect';
+
+  /* Heatmap Layer - display all click points after game ends */
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: clickPoints,
+    map: map,
+    radius: 40
+  });
 }
