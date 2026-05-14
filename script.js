@@ -90,9 +90,15 @@ function checkAnswer(latLng) {
     drawRect(loc.bounds, '#00cc00');
     addLog('Your answer is correct!!', 'correct');
   } else {
-    drawRect(loc.bounds, '#ff0000');
-    addLog('Sorry wrong location.', 'incorrect');
+    var clickBounds = {
+      north: lat + 0.0003,
+      south: lat - 0.0003,
+      east:  lng + 0.0003,
+      west:  lng - 0.0003
+    };
+    drawRect(clickBounds, '#ff0000');
     drawRect(loc.bounds, '#00cc00');
+    addLog('Sorry wrong location.', 'incorrect');
   }
 
   currentIndex++;
