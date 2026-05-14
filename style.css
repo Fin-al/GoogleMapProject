@@ -53,3 +53,10 @@ body {
 #map {
   flex: 1;
 }
+
+
+.gmnoprint,
+.gm-bundled-control,
+.gm-style-cc {
+  display: none !important;
+}

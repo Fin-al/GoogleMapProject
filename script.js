@@ -1,13 +1,13 @@
 /* LOCATIONS */
 
-/*  Assigned Location */
+/* Instructor Assigned Location */
 var locations = [
   {
     name:   "Plaza del Sol Performance Hall",
     bounds: { north: 34.24080, south: 34.24010, east: -118.52600, west: -118.52720 }
   },
 
-/* Locations */
+/* Student Chosen Locations */
   {
     name:   "Bayramian Hall",
     bounds: { north: 34.24075, south: 34.23995, east: -118.53075, west: -118.53190 }
@@ -46,6 +46,7 @@ function initMap() {
     streetViewControl:      false,
     rotateControl:          false,
     fullscreenControl:      false,
+    scaleControl:           false,
     disableDoubleClickZoom: true,
     draggable:              false,
     scrollwheel:            false,
